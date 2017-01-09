@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<section class="headerMargin">
+
+	{% cache 'front' { time:600 } %}
+		{% gimmelist article from articles|start(0)|limit(11) %}
+			{% if loop.first %}
+				<div class="col col--md2 ">
+					{% include 'partials/articleBox.html.twig' with {'size' : '2'} %}
+				</div>
+			{% else %}
+				<div class="col col--sm2 col--md4 "  >
+					{% include 'partials/articleBox.html.twig' with {'size' : '4'} %}
+				</div>
+		  {% endif %}
+
+		  {% if loop.index == 3 %}
+			  <div class="col col--md2 ">
+			  	{% include 'partials/mostBox.html.twig' with {'size' : '2'} %}
+			  </div>
+		  {%endif%}
+
+	    {% if loop.index == 7 %}
+	  	  <div class="col col--md2 ">
+	  	  	{% include 'partials/commentBox.html.twig' with {'size' : '2'} %}
+	  	  </div>
+	    {%endif%}
+		{% endgimmelist %}
+	{% endcache %}
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{
+    "name": "swp/magazine-theme",
+    "title": "Magazine Theme",
+    "description": "Superdesk Web Publisher Magazine theme",
+    "authors": [
+        {
+            "name": "Sourcefabric z.ú.",
+            "email": "contact@sourcefabric.org",
+            "homepage": "https://www.sourcefabric.org",
+            "role": "Organization"
+        }
+    ]
+}

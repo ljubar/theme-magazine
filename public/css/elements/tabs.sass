@@ -1,0 +1,29 @@
+.tabs
+
+  &__nav
+    margin-bottom: 2em
+  &__navItem
+    display: inline-block
+    font-size: 1.6em
+    font-weight: 600
+    color: $colorLightGray
+    text-align: center
+    line-height: 1.1em
+    padding-right: 1.2em
+    +xlg
+      padding-right: 1.8em
+
+
+    &:hover
+      color: $colorBlue
+      text-decoration: none
+
+    &--active
+      color: $colorBlue
+      text-decoration: none
+
+  &__content
+    display: none
+
+    &--active
+      display: block

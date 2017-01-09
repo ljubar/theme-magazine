@@ -1,0 +1,82 @@
+
+.nav
+
+  ul
+    margin: 0
+    padding: 0
+
+    li
+      display: inline-block
+      margin-right: 0
+      margin-left: 2rem
+      &:first-child
+        margin-left: 0
+
+      > a
+        display: inline-block
+        font-weight: 400
+        font-size: 1.6rem
+        text-decoration: none
+        line-height: 1em
+
+        &:hover
+          color: $colorBlue
+        &.offline
+          color: #bbb
+
+      &.current a
+          color: $colorBlue
+          font-weight: 600
+
+.overlay
+  z-index: 1
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: rgba(0,0,0,0)
+  transform: translateX(-100%)
+  +transitions(background 0.3s)
+  will-change: transform
+  &--visible
+    transform: translateX(0)
+    background: rgba(0,0,0,0.3)
+
+.mobileNav
+  position: fixed
+  left: 0
+  top: 44px
+  bottom: 0
+  overflow-y: scroll
+  width: 320px
+  background-color: #fff
+  z-index: 2
+  will-change: transform
+  transform: translateX(-100%)
+  +transitions(0)
+
+  &--open
+    transform: translateX(0)
+
+  ul
+    margin: 0
+    padding: 0
+    li
+      list-style: none
+      border-bottom: 1px solid #ddd
+
+      a
+        display: block
+        padding: 12px
+        color: #000
+        &:hover
+          color: $colorBlue
+        &.offline
+          color: #bbb
+
+      &.current a
+          color: $colorBlue
+          font-weight: 600
+
+

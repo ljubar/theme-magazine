@@ -1,0 +1,54 @@
+.list
+  margin: 0
+  padding: 0
+  list-style: none
+
+
+  &--horizontal
+    > li
+      display: inline-block
+      margin-right: 1rem
+      +sm
+        margin-right: 1rem
+
+
+
+  &--verticallyDivided
+    > li
+      padding: 1.3rem 0
+      border-bottom: 1px solid $colorLightGray
+
+      &:last-child
+        border: none
+
+
+  &--columns
+    +sm
+      column-count: 4
+      column-gap: 20px
+
+
+  &--numbered
+    &:first-child
+      counter-reset: customlistcounter
+    > li
+      display: flex
+      align-items: center
+      clear: both
+      counter-increment: customlistcounter
+      > *
+        margin-left: 2em
+        +lg
+          margin-left: 4em
+      &:before
+        content: counter(customlistcounter, decimal-leading-zero) " "
+        font-family: Times New Roman, serif
+        font-size: 3em
+        font-style: italic
+        color: $colorLightGray
+        padding: 0
+        +lg
+          font-size: 6em
+
+
+
