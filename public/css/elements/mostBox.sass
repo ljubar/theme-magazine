@@ -1,0 +1,34 @@
+.mostBox
+  background-color: $colorWhite
+  padding: 3rem 15%
+  font-size: 1rem
+
+  &__article
+    display: flex
+    border-bottom: 1px solid $colorLightGray
+    +sm
+      font-size: 1rem
+    +md
+      display: block
+
+    h2
+      font-size: 1.4em
+      +md
+        font-size: 1.6em
+      +lg
+        font-size: 2em
+    p
+      display: none
+      font-size: 1.6em
+
+      +xlg
+        display: block
+
+  //ugly overwrites
+  .tabs .tabs__nav
+    +lg
+      margin-left: 8rem
+    .tabs__navItem
+      font-size: 1.2em
+      +lg
+        font-size: 1.6em

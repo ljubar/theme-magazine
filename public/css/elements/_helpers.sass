@@ -1,0 +1,80 @@
+=transitions($params)
+  @if length($params) < 2
+    $params: all .3s
+
+  -webkit-transition: $params
+  -moz-transition: $params
+  -ms-transition: $params
+  -o-transition: $params
+  transition: $params
+
+.margin
+  &Top10
+    margin-top: 10px
+  &Bottom10
+    margin-bottom: 10px
+  &Top30
+    margin-top: 30px
+  &Bottom30
+    margin-bottom: 30px
+
+.contentPadding
+  padding: 20px
+  +md
+    padding: 50px
+  +xlg
+    padding: 90px
+
+.text
+  &--italic
+    font-style: italic
+  &--light
+    font-weight: 300
+  &--bold
+    font-weight: 600
+  &--uppercase
+    text-transform: uppercase
+  &--center
+    text-align: center
+  &--smaller
+    font-size: 1.6rem
+
+.color
+  &--darkGray
+    color: $colorDarkGray
+
+.line
+  display: block
+  height: 1px
+  border-top: 1px solid $colorLightGray
+
+.bgImg
+  &--cover
+    background-position: center center
+    background-size: cover
+
+.centerBoth
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+.headerMargin
+  margin-top: 44px
+  +lg
+    margin-top: 70px
+
+.articleLogo
+  +md
+    display: inline-block
+    position: absolute
+    top: 23px
+    left: 30px
+    background: url(../img/logo.svg) top left no-repeat
+    width: 100px
+    height: 28px
+  &--dark
+    +md
+      background-image: url(../img/logo_dark.svg)
+
+.relative
+  position: relative

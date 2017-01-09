@@ -1,0 +1,25 @@
+<div class="box mostBox " >
+  <div class="tabs">
+    <div class="tabs__nav">
+      <a class="tabs__navItem tabs__navItem--active" href="#tab1" >Most read</a>
+     {#  <a class="tabs__navItem " href="#tab1">Most commented</a>
+      <a class="tabs__navItem " href="#tab1">Most Shared</a> #}
+    </div>
+    {% cache 'mostArticles' { time:3600 } %}
+
+    <div class="tabs__content tabs__content--active listBox__content" name="#tab1">
+      <ul class="list list--numbered">
+        {% gimmelist article from articles|start(0)|limit(3) %}
+          <li>
+            <a href="{{url(article)}}" class="mostBox__article">
+              <h2>{{ article.title }}</h2>
+              <p>{{ article.body|truncate(100,true) }}</p>
+            </a>
+          </li>
+        {% endgimmelist %}
+
+      </ul>
+    </div>
+    {%endcache%}
+  </div>
+</div>

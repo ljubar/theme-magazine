@@ -1,0 +1,19 @@
+
+<script>
+ var galleryLinks = [];
+
+  {% gimmelist media from articleMedia with {'article': article} %}
+    {% if media.renditions is iterable %}
+      {% for rendition in media.renditions %}
+        {% if rendition.name == '960x480' %}
+          galleryLinks.push({
+             title: '{{ media.body }}',
+             href: '{{path(rendition)}}',
+             type: 'image/jpeg'
+          });
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endgimmelist %}
+
+</script>

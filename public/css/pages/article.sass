@@ -1,0 +1,54 @@
+.article
+  &__header
+    max-width: 740px
+    margin-left: auto
+    margin-right: auto
+
+  &__body
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 160%;
+    max-width: 740px
+    margin-left: auto
+    margin-right: auto
+
+  &__image
+    display: block
+    max-width: 960px
+    margin-left: -20px
+    margin-right: -20px
+    margin-bottom: 3rem
+    background-color: #eee
+    min-height: 60vw
+    position: relative
+    +transitions(0)
+    +sm
+      min-height: 50vw
+    +md
+      margin-left: auto
+      margin-right: auto
+      min-height: 400px
+    +lg
+      display: none
+
+  &__openGallery
+    display: none
+    position: absolute
+    top: 0
+    right: 0
+    width: 30px
+    height: 30px
+    padding: 20px
+    cursor: pointer
+    background: rgba(255,255,255, 0.5) url(../img/galleryOpen.svg) center center no-repeat
+
+    &--visible
+      display: block
+
+
+  &__footer
+    max-width: 740px
+    margin-left: auto
+    margin-right: auto
+
+
