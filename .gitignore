@@ -1,2 +1,19 @@
+<<<<<<< HEAD
 node_modules/
+=======
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+node_modules/
+sftp-config.json
+.remote-sync.json
+.grunt
+>>>>>>> e900b9c99636bb1caf9793164613907edba4ad15
 .sass-cache/
