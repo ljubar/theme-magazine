@@ -13,6 +13,7 @@
 	    	<a class="close">×</a>
 	</div>
 
+
 	{% cache 'article' {gen: gimme.article} %}
 
 	<aside class="col col--lg2 col--fullHeightFixedLeft visible-lg relative" >
@@ -28,7 +29,6 @@
 		    {% endfor %}
 		  {% endif %}
 		{% endgimmelist %}
-
 		>
 		<a href="/" class="articleLogo"></a>
 		<span class="article__openGallery"></span>

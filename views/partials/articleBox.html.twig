@@ -68,7 +68,7 @@
       <time datetime="{{ article.publishedAt|date("c") }}">{{ article.publishedAt|date("d M Y") }}</time>
       <h2 >{{ article.title }}</h2>
       <div class="articleBox__extras">
-        <p>{{ article.body|truncate(150,true) }}</p>
+        <p>{{ article.lead|truncate(150,true) }}</p>
       </div>
     </div>
   </a>
