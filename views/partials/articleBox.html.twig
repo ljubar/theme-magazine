@@ -1,0 +1,75 @@
+{% set xs = '' %}
+{% set sm = '' %}
+{% set md = '' %}
+{% set lg = '' %}
+
+
+{% if size==2 %}
+
+  {% gimmelist media from articleMedia|limit(1) with {'article': article} %}
+    {% if media.renditions is iterable %}
+      {% for rendition in media.renditions %}
+
+        {% if rendition.name == '960x480' %}
+          {% set lg = path(rendition) %}
+          {% set md = path(rendition) %}
+        {% elseif rendition.name == '600x360' %}
+          {% set sm = path(rendition) %}
+        {% elseif rendition.name == '400x240' %}
+          {% set xs = path(rendition) %}
+        {% endif %}
+
+      {% endfor %}
+    {% endif %}
+  {% endgimmelist %}
+
+{% else %}
+
+  {% gimmelist media from articleMedia|limit(1) with {'article': article} %}
+    {% if media.renditions is iterable %}
+      {% for rendition in media.renditions %}
+
+        {% if rendition.name == '480x480' %}
+          {% set lg = path(rendition) %}
+          {% set md = path(rendition) %}
+        {% elseif rendition.name == '600x360' %}
+          {% set sm = path(rendition) %}
+        {% elseif rendition.name == '400x240' %}
+          {% set xs = path(rendition) %}
+        {% endif %}
+
+      {% endfor %}
+    {% endif %}
+  {% endgimmelist %}
+
+{% endif %}
+
+<div class="box">
+  <div class="responsiveBg"
+  {% if xs is not empty %}
+    data-xs="{{xs}}"
+  {% endif %}
+  {% if sm is not empty %}
+    data-sm="{{sm}}"
+  {% endif %}
+  {% if md is not empty %}
+    data-md="{{md}}"
+  {% endif %}
+  {% if lg is not empty %}
+    data-lg="{{lg}}"
+  {% endif %}
+  ></div>
+
+  <a  href="{{path(article)}}" class="articleBox" >
+    <div class="articleBox__heading">
+      {% if article.metadata.byline %}
+        <h5>{{ article.metadata.byline }}</h5>
+      {% endif %}
+      <time datetime="{{ article.publishedAt|date("c") }}">{{ article.publishedAt|date("d M Y") }}</time>
+      <h2 >{{ article.title }}</h2>
+      <div class="articleBox__extras">
+        <p>{{ article.lead|truncate(150,true) }}</p>
+      </div>
+    </div>
+  </a>
+</div>

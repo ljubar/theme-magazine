@@ -1,0 +1,56 @@
+.header
+  height: 44px
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  background-color: $colorWhite
+  z-index: 5
+  box-shadow: 0px 0px 8px rgba(0,0,0, 0.3)
+  padding-right: 3rem
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-direction: row
+  +lg
+    height: 70px
+
+  &__hamburger
+    margin-left: 12px
+    cursor: pointer
+    line-height: 1rem
+    width: 22px
+    height: 22px
+    background: url(../img/hamburger.svg) center center no-repeat
+    background-size: 22px 22px
+    border: none
+
+    +md
+      display: none
+
+
+  &__logo
+    width: calc(100% - 34px)
+    text-align: center
+    flex: 0 0 auto
+    margin-bottom: -5px
+    +md
+      width: auto
+      margin-left: 3rem
+      margin-right: 5rem
+
+
+
+  &__nav
+    display: none
+    +md
+      display: block
+      flex: 0 0 auto
+
+
+.logo
+  display: inline-block
+  width: 100px
+  height: 26px
+  background: url(../img/logo_dark.svg) top left no-repeat
+

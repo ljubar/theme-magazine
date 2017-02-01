@@ -1,0 +1,33 @@
+.commentBox
+  text-align: center
+  margin: 3rem
+  color: $colorWhite
+
+  &__heading
+    font-size: 1.6rem
+    font-weight: 600
+    +sm
+      font-size: 1.2rem
+    +lg
+      font-size: 1.6rem
+
+  &__quote
+    color: $colorWhite
+    &::before
+      content: ''
+      display: block
+      width: 3rem
+      height: 3rem
+      margin: 2rem auto
+      background: url(../img/quote.svg) center center no-repeat
+      +sm
+        display: none
+      +lg
+        display: block
+
+    +sm
+      font-size: 1.8rem
+    +md
+      font-size: 2.2rem
+    +lg
+      font-size: 3rem

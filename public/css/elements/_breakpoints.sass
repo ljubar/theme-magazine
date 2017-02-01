@@ -1,0 +1,20 @@
+$screen-sm: 600px
+$screen-md: 900px
+$screen-lg: 1280px
+
+
+=sm
+  @media (min-width: #{$screen-sm})
+    @content
+
+=md
+  @media (min-width: #{$screen-md})
+    @content
+
+=lg
+  @media (min-width: #{$screen-lg})
+    @content
+
+=xlg
+  @media (min-width: 1800px)
+    @content
