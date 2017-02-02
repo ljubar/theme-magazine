@@ -6,7 +6,7 @@
 <section class="headerMargin">
 
 	{% cache 'front' { time:600 } %}
-		{% gimmelist article from articles|start(0)|limit(11) %}
+		{% gimmelist article from articles|start(0)|limit(11)|order('publishedAt','desc') %}
 			{% if loop.first %}
 				<div class="col col--md2 ">
 					{% include 'partials/articleBox.html.twig' with {'size' : '2'} %}
