@@ -3,7 +3,7 @@
   "short_name": "Magazine",
   "theme_color": "#4866a4",
   "background_color": "#4866a4",
-  "display": "minimal-ui",
+  "display": "standalone",
   "Scope": "/",
   "start_url": "/",
   "icons": [
