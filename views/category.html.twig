@@ -3,7 +3,7 @@
 {% block body %}
   <section class="headerMargin">
 
-    {% gimmelist article from articles|start(0)|limit(10) %}
+    {% gimmelist article from articles|start(0)|limit(10)|order('publishedAt','desc') %}
       {% if (loop.first) or (loop.index == 6)  %}
         <div class="col col--md2 ">
           {% include 'partials/articleBox.html.twig' with {'size' : '2'} %}
