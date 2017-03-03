@@ -5,7 +5,7 @@ DESCRIPTION
 
 **Magazine** theme features customizable menu-, html- and content list widgets which enable live-site editing from frontend.
 
-To create richer user experience, 3rd-party services can be incorporated. In **Magazine* theme we showcase it with Disqus article comments.
+To create richer user experience, 3rd-party services can be incorporated. In **Magazine** theme we showcase it with Disqus article comments.
 
 SETTING UP DEVELOPMENT ENVIRONMENT
 ----------------------------------
