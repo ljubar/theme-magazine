@@ -3,7 +3,7 @@ DESCRIPTION
 
 **Magazine** theme is fresh, fully responsive, simple and ultra fast Superdesk Publisher theme built to serve those media operations that are not primarily focused on daily content production, but on fewer stories per day/week that have longer time span. Naturally this applies to traditional weekly, be-weekly or even monthly type of magazines from the print world. 
 
-**Magazine** theme features customizable menu-, html- and content list widgets which enable live-site editing from frontend.
+**Magazine** theme features customizable menu, html and content list widgets which enable live-site editing from frontend.
 
 To create richer user experience, 3rd-party services can be incorporated. In **Magazine** theme we showcase it with Disqus article comments.
 
