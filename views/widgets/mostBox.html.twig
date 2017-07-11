@@ -1,0 +1,23 @@
+<div class="box mostBox " >
+  <div class="tabs">
+    <div class="tabs__nav">
+      <a class="tabs__navItem tabs__navItem--active" href="#tab1" >Featured articles</a>
+    </div>
+    {% cache 'contentlist' ~ listId { time: 600 } %}
+
+    <div class="tabs__content tabs__content--active listBox__content" name="#tab1">
+      <ul class="list list--numbered">
+        {% gimmelist item from contentListItems|limit(3) with { contentListId: listId } %}
+          <li>
+            <a href="{{ url(item.content) }}" class="mostBox__article">
+              <h2>{{ item.content.title }}</h2>
+              <p>{{ item.content.body|truncate(100,true) }}</p>
+            </a>
+          </li>
+        {% endgimmelist %}
+
+      </ul>
+    </div>
+    {%endcache%}
+  </div>
+</div>
