@@ -1,0 +1,23 @@
+<div class="box mostBox " >
+  <div class="tabs">
+    <div class="tabs__nav">
+      <a class="tabs__navItem tabs__navItem--active" href="#tab1" >{{ contentList.name }}</a>
+    </div>
+    {% cache 'contentlist' ~ contentList.id { time: contentList.cacheLifeTime ?: 0 } %}
+
+    <div class="tabs__content tabs__content--active listBox__content" name="#tab1">
+      <ul class="list list--numbered">
+        {% for item in contentList.items|slice(start, 3) %}
+          <li>
+            <a href="{{ item.content.route.staticPrefix }}/{{ item.content.slug }}" class="mostBox__article">
+              <h2>{{ item.content.title }}</h2>
+              <p>{{ item.content.body|truncate(100,true) }}</p>
+            </a>
+          </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+    {%endcache%}
+  </div>
+</div>

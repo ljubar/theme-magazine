@@ -35,7 +35,9 @@
       <a href="/" class="logo"></a>
     </div>
 
-     {{ knp_menu_render('mainNavigation',{'template':'widgets/mainNav.html.twig'}) }}
+    {% container 'mainNav' %}
+      {# Content of this container is defined by menu widget which is linked to it. Template used for this menu is widgets/menu1.html.twig #}
+    {% endcontainer %}
 
   </header>
   <div class="overlay"></div>
