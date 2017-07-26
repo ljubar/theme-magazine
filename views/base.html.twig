@@ -29,11 +29,29 @@
 
 </head>
 <body>
+
+{% include 'partials/login-popup.html.twig' %}
+
+{% include 'partials/register-popup.html.twig' %}
+
+{% include 'partials/user-profile.html.twig' %}
+
   <header class="header">
     <button class="header__hamburger"></button>
     <div class="header__logo">
       <a href="/" class="logo"></a>
     </div>
+          <ul class="pull-left">
+          {% if app.user %}
+            <li><a href="#" class="open_user_profile" data-toggle="modal" data-target="#userProfile">Hello {{ app.user.username }}</a></li>
+            <li>|</li>
+            <li><a href="{{ url('security_logout') }}">Logout</a></li>
+          {% else %}
+            <li><a href="#" class="open_user_profile" data-toggle="modal" data-target="#loginPopup">Sign in</a></li>
+            <li>|</li>
+            <li><a href="#" class="open_user_profile" data-toggle="modal" data-target="#registerPopup">Sign up</a></li>
+          {% endif %}
+          </ul> 
 
     {% container 'mainNav' %}
       {# Content of this container is defined by menu widget which is linked to it. Template used for this menu is widgets/menu1.html.twig #}
@@ -41,7 +59,7 @@
 
   </header>
   <div class="overlay"></div>
-  {{ knp_menu_render('mainNavigation',{'template':'widgets/mobileNav.html.twig'}) }}
+  {# knp_menu_render('mainNavigation',{'template':'widgets/mobileNav.html.twig'}) #}
 
   {% block body %}{% endblock %}
 
