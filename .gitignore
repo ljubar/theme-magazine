@@ -14,4 +14,3 @@ sftp-config.json
 .grunt
 .sass-cache/
 package-lock.json
-.gitignore
