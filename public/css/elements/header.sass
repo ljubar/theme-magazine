@@ -6,13 +6,13 @@
   right: 0
   background-color: $colorWhite
   z-index: 5
-  box-shadow: 0px 0px 8px rgba(0,0,0, 0.3)
-  padding-right: 3rem
+  padding-right: 2rem
   display: flex
   align-items: center
   justify-content: space-between
   flex-direction: row
   +lg
+    padding-right: 3rem
     height: 70px
 
   &__hamburger
@@ -30,7 +30,6 @@
 
 
   &__logo
-    width: calc(100% - 34px)
     text-align: center
     flex: 0 0 auto
     margin-bottom: -5px
@@ -46,6 +45,24 @@
     +md
       display: block
       flex: 0 0 auto
+
+.header__linksWrap
+  display: flex
+  align-items: center
+
+.header__userProfile
+  font-size: 1.6rem
+  list-style: none
+  padding: 0px
+  margin: 0px
+  margin-left: 1rem
+  +md
+    margin-left: 4rem
+  li
+    display: inline-block
+    a
+      text-transform: lowercase
+      text-decoration: none
 
 
 .logo

@@ -6,16 +6,21 @@
     padding: 0
 
     li
-      display: inline-block
+      display: block
       margin-right: 0
-      margin-left: 2rem
-      &:first-child
-        margin-left: 0
+      margin-left: 0
+      +md
+        margin-left: 1rem
+        display: inline-block
+      +md
+        &:first-child
+          margin-left: 0
 
       > a
         display: inline-block
         font-weight: 400
         font-size: 1.6rem
+        text-transform: lowercase
         text-decoration: none
         line-height: 1em
 
@@ -43,18 +48,26 @@
     transform: translateX(0)
     background: rgba(0,0,0,0.3)
 
-.mobileNav
+.nav__wrap
   position: fixed
   left: 0
   top: 44px
   bottom: 0
-  overflow-y: scroll
+  overflow-y: auto
   width: 320px
   background-color: #fff
   z-index: 2
   will-change: transform
   transform: translateX(-100%)
   +transitions(0)
+  +md
+    position: relative
+    left: auto
+    top: auto
+    bottom: auto
+    overflow: auto
+    width: auto
+    transform: none
 
   &--open
     transform: translateX(0)
@@ -65,11 +78,12 @@
     li
       list-style: none
       border-bottom: 1px solid #ddd
+      +md
+        border-bottom: none
 
       a
         display: block
         padding: 12px
-        color: #000
         &:hover
           color: $colorBlue
         &.offline

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   $('.header__hamburger, .overlay').on('click', function(){
-    $('.mobileNav').toggleClass('mobileNav--open');
+    $('.nav__wrap').toggleClass('nav__wrap--open');
     $('.overlay').toggleClass('overlay--visible');
   })
 

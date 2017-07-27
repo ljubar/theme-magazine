@@ -1,0 +1,39 @@
+.modalUser
+  label
+    font-size: 1.4rem
+    flex: 1 0 100%
+    font-weight: 400
+    text-transform: lowercase
+    text-align: right
+    padding-right: 40px
+    +sm
+      flex: 1 0 30%
+  input, textarea
+    flex: 1 0 100%
+    background: #eee
+    text-align: center
+    border: 1px solid #ccc
+    font-style: normal
+    +sm
+      flex: 0 0 70%
+    &[type="submit"]
+      flex: 0 0 33%
+      width: auto
+      background: $colorBlue
+      border: none
+
+.modalUser__inputWrap
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: center
+  margin-bottom: 20px
+  overflow: hidden
+
+#registrationResult
+  p
+    font-size: 1.4rem
+  .flash-success
+    font-size: 1.4rem
+    font-weight: 700
+  
