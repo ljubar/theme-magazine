@@ -6,18 +6,17 @@
 
 {% block body %}
 	<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
-	    	<div class="slides"></div>
+	    <div class="slides"></div>
 	    	<h3 class="title"></h3>
 	    	<a class="prev">‹</a>
 	    	<a class="next">›</a>
 	    	<a class="close">×</a>
-	</div>
+		</div>
 
+		{% cache 'article' {gen: gimme.article} %}
 
-	{% cache 'article' {gen: gimme.article} %}
-
-	<aside class="col col--lg2 col--fullHeightFixedLeft visible-lg relative" >
-		<div class="responsiveBg"
+		<aside class="col col--lg2 col--fullHeightFixedLeft visible-lg relative" >
+			<div class="responsiveBg"{% spaceless %}
 
 		{% gimmelist media from articleMedia|limit(1) with {'article': gimme.article} %}
 		  {% if media.renditions is iterable %}
@@ -29,27 +28,25 @@
 		    {% endfor %}
 		  {% endif %}
 		{% endgimmelist %}
-		>
-		<a href="/" class="articleLogo"></a>
-		<span class="article__openGallery"></span>
-	</div>
+		{% endspaceless %}>
+				<a href="/" class="articleLogo"></a>
+				<span class="article__openGallery"></span>
+			</div>
+		</aside>
 
+		<article class="col col--lg2 col--lg2--right headerMargin contentPadding article">
+			<header class="text--center article__header">
+				<time datetime="{{ gimme.article.publishedAt|date("c") }}" class="text--light text--smaller color--darkGray">{{ gimme.article.publishedAt|date("d F Y") }}</time>
+				<h1>{{ gimme.article.title }}</h1>
 
-
-	</aside>
-	<article class="col col--lg2 col--lg2--right headerMargin contentPadding article">
-		<header class="text--center article__header">
-			<time datetime="{{ gimme.article.publishedAt|date("c") }}" class="text--light text--smaller color--darkGray">{{ gimme.article.publishedAt|date("d F Y") }}</time>
-			<h1>{{ gimme.article.title }}</h1>
-
-		{# 	<nav class="articleNavigation">
+				{# 	<nav class="articleNavigation">
 				<a href="#" class="articleNavigation__el text--light text--smaller color--darkGray">previous</a>
 				<div class="articleNavigation__el articleNavigation__el--spacer">
 					<span class="line"></span>
 				</div>
 				<a href="#" class="articleNavigation__el text--light text--smaller color--darkGray">next</a>
-			</nav> #}
-		</header>
+				</nav> #}
+			</header>
 		{% set big = '' %}
 		{% set small = '' %}
 		{% set xsmall = '' %}
@@ -69,15 +66,13 @@
 			  {% endif %}
 			{% endgimmelist %}
 
-
-
 			{% if xsmall is not empty %}
 				<picture class="article__image">
 					<span class="article__openGallery"></span>
 					<source srcset="{{xsmall}}" media="(max-width: 400px)" />
-				  <source srcset="{{small}}" media="(min-width: 401px) and  (max-width: 600px)" />
-				  <source srcset="{{big}}" media="(min-width: 601px) and (max-width: 1279px) " />
-				   <img src="{{xsmall}}" alt="" />
+					<source srcset="{{small}}" media="(min-width: 401px) and  (max-width: 600px)" />
+					<source srcset="{{big}}" media="(min-width: 601px) and (max-width: 1279px) " />
+					<img src="{{xsmall}}" alt="" />
 				</picture>
 				{% include 'partials/article-gallery.html.twig' %}
 			{% endif %}
@@ -133,7 +128,5 @@
 
 	</article>
 
-
 	{% endcache %}
 {% endblock %}
-
