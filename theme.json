@@ -9,5 +9,130 @@
         "homepage": "https://www.sourcefabric.org",
         "role": "Organization"
     }
-    ]
+    ],
+    "settings": {
+        "primary_color": {
+            "label": "Primary Color",
+            "value": "#4866a4",
+            "type": "string"
+        }
+    },
+    "generatedData": {
+        "routes": [
+            {
+                "name": "Business",
+                "slug": "business",
+                "type": "collection",
+                "numberOfArticles": 4
+            },
+            {
+                "name": "Opinion",
+                "slug": "opinion",
+                "type": "collection",
+                "numberOfArticles": 4
+            },
+            {
+                "name": "Travel",
+                "slug": "travel",
+                "type": "collection",
+                "numberOfArticles": 16
+            },
+            {
+                "name": "Sports",
+                "slug": "sports",
+                "type": "collection",
+                "numberOfArticles": 4
+            },
+            {
+                "name": "Home",
+                "slug": "home",
+                "type": "content",
+                "templateName": "index.html.twig"
+            }
+        ],
+        "menus": [
+            {
+                "name": "mainNavigation",
+                "label": "Main Navigation",
+                "children": [
+                    {
+                        "name": "home",
+                        "label": "Home",
+                        "route": "Home"
+                    },
+                    {
+                        "name": "business",
+                        "label": "Business",
+                        "route": "Business"
+                    },
+                    {
+                        "name": "opinion",
+                        "label": "Opinion",
+                        "route": "Opinion"
+                    },
+                    {
+                        "name": "sports",
+                        "label": "Sports",
+                        "route": "Sports"
+                    },
+                    {
+                        "name": "travel",
+                        "label": "Travel",
+                        "route": "Travel"
+                    }
+                ]
+            }
+        ],
+        "contentLists": [
+            {
+                "name": "Featured",
+                "description": null,
+                "type": "automatic",
+                "cacheLifeTime": 0,
+                "limit": 3
+            },
+            {
+                "name": "Top news",
+                "description": "Frontpage list of articles",
+                "type": "manual",
+                "cacheLifeTime": 0,
+                "limit": null
+            }
+        ],
+        "containers": [
+            {
+                "name": "mainNav"
+            },
+            {
+                "name": "topStories",
+                "cssClass": "col col--md2"
+            },
+            {
+                "name": "commentBox",
+                "cssClass": "box centerBoth"
+            }
+        ],
+        "widgets": [
+            {
+                "type": "SWP\\Bundle\\TemplatesSystemBundle\\Widget\\MenuWidgetHandler",
+                "name": "main Navigation",
+                "visible": true,
+                "parameters": {
+                    "menu_name": "Main navigation",
+                    "template_name": "menu1.html.twig"
+                },
+                "containers": ["mainNav"]
+            },
+            {
+                "type": "SWP\\Bundle\\CoreBundle\\Widget\\ContentListWidget",
+                "name": "featured",
+                "visible": true,
+                "parameters": {
+                    "list_name": "Featured",
+                    "template_name": "mostBox.html.twig"
+                },
+                "containers": ["topStories"]
+            }
+        ]
+    }
 }
