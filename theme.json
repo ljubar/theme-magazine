@@ -104,41 +104,6 @@
                 "cacheLifeTime": 0,
                 "limit": null
             }
-        ],
-        "containers": [
-            {
-                "name": "mainNav"
-            },
-            {
-                "name": "topStories",
-                "cssClass": "col col--md2"
-            },
-            {
-                "name": "commentBox",
-                "cssClass": "box centerBoth"
-            }
-        ],
-        "widgets": [
-            {
-                "type": "SWP\\Bundle\\TemplatesSystemBundle\\Widget\\MenuWidgetHandler",
-                "name": "main Navigation",
-                "visible": true,
-                "parameters": {
-                    "menu_name": "Main navigation",
-                    "template_name": "menu1.html.twig"
-                },
-                "containers": ["mainNav"]
-            },
-            {
-                "type": "SWP\\Bundle\\CoreBundle\\Widget\\ContentListWidget",
-                "name": "featured",
-                "visible": true,
-                "parameters": {
-                    "list_name": "Featured",
-                    "template_name": "mostBox.html.twig"
-                },
-                "containers": ["topStories"]
-            }
         ]
     }
 }
