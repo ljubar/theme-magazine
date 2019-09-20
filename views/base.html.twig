@@ -26,6 +26,33 @@
 
   {% block head %}{% endblock %}
 
+  <style>
+  {% if themeLogo('') != '' %}
+    @media (min-width:900px){
+      .articleLogo{
+        background-image: url({{ themeLogo(asset('/public/img/logo.svg')) }})
+      }
+      .articleLogo--dark{
+        background-image: url({{ themeLogo(asset('/public/img/logo.svg')) }})
+      }
+    }
+
+    .logo {
+      background-image: url({{ themeLogo(asset('/public/img/logo.svg')) }})
+    }
+  {% endif %}
+
+  {% if themeSetting('primary_color') %}
+    .box, .button--color, .modalUser input[type="submit"] {
+       background-color: {{ themeSetting('primary_color') }};
+    }
+
+    a:hover, .tabs__navItem:hover, .tabs__navItem--active, .nav ul li>a:hover, .nav ul li.current a, .nav__wrap ul li a:hover, .nav__wrap ul li.current a {
+      color: {{ themeSetting('primary_color') }};
+    }
+
+  {% endif %}
+  </style>
 
 </head>
 <body>
@@ -41,7 +68,7 @@
     <div class="header__logo">
       <a href="/" class="logo"></a>
     </div>
-    
+
     <div class="header__linksWrap">
 
 {% include 'widgets/menu1.html.twig' %}
@@ -61,7 +88,7 @@
 
   </header>
   <div class="overlay"></div>
-  
+
   {% block body %}{% endblock %}
 
   <script type="text/javascript">

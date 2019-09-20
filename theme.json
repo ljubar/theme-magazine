@@ -9,5 +9,101 @@
         "homepage": "https://www.sourcefabric.org",
         "role": "Organization"
     }
-    ]
+    ],
+    "screenshots": [
+        {
+            "path": "screenshot.png",
+            "title": "Magazine"
+        }
+    ],
+    "settings": {
+        "primary_color": {
+            "label": "Primary Color",
+            "value": "#4866a4",
+            "type": "string"
+        }
+    },
+    "generatedData": {
+        "routes": [
+            {
+                "name": "Business",
+                "slug": "business",
+                "type": "collection",
+                "numberOfArticles": 4
+            },
+            {
+                "name": "Opinion",
+                "slug": "opinion",
+                "type": "collection",
+                "numberOfArticles": 4
+            },
+            {
+                "name": "Travel",
+                "slug": "travel",
+                "type": "collection",
+                "numberOfArticles": 16
+            },
+            {
+                "name": "Sports",
+                "slug": "sports",
+                "type": "collection",
+                "numberOfArticles": 4
+            },
+            {
+                "name": "Home",
+                "slug": "home",
+                "type": "content",
+                "templateName": "index.html.twig"
+            }
+        ],
+        "menus": [
+            {
+                "name": "mainNavigation",
+                "label": "Main Navigation",
+                "children": [
+                    {
+                        "name": "home",
+                        "label": "Home",
+                        "route": "Home"
+                    },
+                    {
+                        "name": "business",
+                        "label": "Business",
+                        "route": "Business"
+                    },
+                    {
+                        "name": "opinion",
+                        "label": "Opinion",
+                        "route": "Opinion"
+                    },
+                    {
+                        "name": "sports",
+                        "label": "Sports",
+                        "route": "Sports"
+                    },
+                    {
+                        "name": "travel",
+                        "label": "Travel",
+                        "route": "Travel"
+                    }
+                ]
+            }
+        ],
+        "contentLists": [
+            {
+                "name": "Featured",
+                "description": null,
+                "type": "automatic",
+                "cacheLifeTime": 0,
+                "limit": 3
+            },
+            {
+                "name": "Top news",
+                "description": "Frontpage list of articles",
+                "type": "manual",
+                "cacheLifeTime": 0,
+                "limit": null
+            }
+        ]
+    }
 }
