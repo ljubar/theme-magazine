@@ -43,9 +43,8 @@
     </div>
     
     <div class="header__linksWrap">
-      {% container 'mainNav' %}
-        {# Content of this container is defined by menu widget which is linked to it. Template used for this menu is widgets/menu1.html.twig #}
-      {% endcontainer %}
+
+{% include 'widgets/menu1.html.twig' %}
 
       <ul class="header__userProfile">
         {% if app.user %}

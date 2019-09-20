@@ -4,43 +4,37 @@
 {% set lg = '' %}
 
 
-{% if size==2 %}
+{% if size == 2 %}
 
-  {% gimmelist media from articleMedia|limit(1) with {'article': article} %}
-    {% if media.renditions is iterable %}
-      {% for rendition in media.renditions %}
-
-        {% if rendition.name == '960x480' %}
-          {% set lg = path(rendition) %}
-          {% set md = path(rendition) %}
-        {% elseif rendition.name == '600x360' %}
-          {% set sm = path(rendition) %}
-        {% elseif rendition.name == '400x240' %}
-          {% set xs = path(rendition) %}
-        {% endif %}
-
-      {% endfor %}
-    {% endif %}
-  {% endgimmelist %}
+  {% if article.featureMedia %}
+    {% gimme rendition with { 'media': article.featureMedia, 'name': '960x480', 'fallback': 'original' } %}
+      {% set lg = path(rendition) %}
+      {% set md = path(rendition) %}
+      {% set imgCaption = article.featureMedia.description %}
+    {% endgimme %}
+    {% gimme rendition with { 'media': article.featureMedia, 'name': '600x360', 'fallback': 'original' } %}
+      {% set sm = path(rendition) %}
+    {% endgimme %}
+    {% gimme rendition with { 'media': article.featureMedia, 'name': '400x240', 'fallback': 'original' } %}
+      {% set xs = path(rendition) %}
+    {% endgimme %}
+  {% endif %}
 
 {% else %}
 
-  {% gimmelist media from articleMedia|limit(1) with {'article': article} %}
-    {% if media.renditions is iterable %}
-      {% for rendition in media.renditions %}
-
-        {% if rendition.name == '480x480' %}
-          {% set lg = path(rendition) %}
-          {% set md = path(rendition) %}
-        {% elseif rendition.name == '600x360' %}
-          {% set sm = path(rendition) %}
-        {% elseif rendition.name == '400x240' %}
-          {% set xs = path(rendition) %}
-        {% endif %}
-
-      {% endfor %}
-    {% endif %}
-  {% endgimmelist %}
+  {% if article.featureMedia %}
+    {% gimme rendition with { 'media': article.featureMedia, 'name': '480x480', 'fallback': 'original' } %}
+      {% set lg = path(rendition) %}
+      {% set md = path(rendition) %}
+      {% set imgCaption = article.featureMedia.description %}
+    {% endgimme %}
+    {% gimme rendition with { 'media': article.featureMedia, 'name': '600x360', 'fallback': 'original' } %}
+      {% set sm = path(rendition) %}
+    {% endgimme %}
+    {% gimme rendition with { 'media': article.featureMedia, 'name': '400x240', 'fallback': 'original' } %}
+      {% set xs = path(rendition) %}
+    {% endgimme %}
+  {% endif %}
 
 {% endif %}
 
@@ -62,9 +56,9 @@
 
   <a  href="{{path(article)}}" class="articleBox" >
     <div class="articleBox__heading">
-      {% if article.metadata.byline %}
-        <h5>{{ article.metadata.byline }}</h5>
-      {% endif %}
+      {% for author in article.authors %} 
+        {% if loop.first %}<h5>{% endif %}{% if not loop.first %}, {% endif %}{{ author.name }}{% if loop.last %}</h5>{% endif %}
+      {% endfor %}
       <time datetime="{{ article.publishedAt|date("c") }}">{{ article.publishedAt|date("d M Y") }}</time>
       <h2 >{{ article.title }}</h2>
       <div class="articleBox__extras">

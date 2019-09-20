@@ -18,18 +18,14 @@
 		<aside class="col col--lg2 col--fullHeightFixedLeft visible-lg relative" >
 			<div class="responsiveBg"{% spaceless %}
 
-		{% gimmelist media from articleMedia|limit(1) with {'article': gimme.article} %}
-		  {% if media.renditions is iterable %}
-		    {% for rendition in media.renditions %}
+        {% if gimme.article.featureMedia %}
+        	{% gimme rendition with { 'media': gimme.article.featureMedia, 'name': '1000x1000', 'fallback': 'original' } %}
+        		data-lg="{{ url(rendition) }}"
+          	{% endgimme %}
+      	{% endif %}
 
-		      {% if rendition.name == '1000x1000' %}
-		        	data-lg="{{path(rendition)}}"
-		      {% endif %}
-		    {% endfor %}
-		  {% endif %}
-		{% endgimmelist %}
 		{% endspaceless %}>
-				<a href="/" class="articleLogo"></a>
+			<a href="/" class="articleLogo"></a>
 				<span class="article__openGallery"></span>
 			</div>
 		</aside>
@@ -50,21 +46,18 @@
 		{% set big = '' %}
 		{% set small = '' %}
 		{% set xsmall = '' %}
-			{% gimmelist media from articleMedia|limit(1) with {'article': gimme.article} %}
-			  {% if media.renditions is iterable %}
-			    {% for rendition in media.renditions %}
 
-			      {% if rendition.name == '960x480' %}
-			      	{% set big = path(rendition) %}
-			      {% elseif rendition.name == '600x360' %}
-			      	{% set small = path(rendition) %}
-			      {% elseif rendition.name == '400x240' %}
-			      	{% set xsmall = path(rendition) %}
-			      {% endif %}
-
-			    {% endfor %}
-			  {% endif %}
-			{% endgimmelist %}
+	        {% if gimme.article.featureMedia %}
+	        	{% gimme rendition with { 'media': gimme.article.featureMedia, 'name': '960x480', 'fallback': 'original' } %}
+	        		{% set big = path(rendition) %}
+	          	{% endgimme %}
+	          	{% gimme rendition with { 'media': gimme.article.featureMedia, 'name': '600x360', 'fallback': 'original' } %}
+	        		{% set small = path(rendition) %}
+	          	{% endgimme %}
+	          	{% gimme rendition with { 'media': gimme.article.featureMedia, 'name': '400x240', 'fallback': 'original' } %}
+	        		{% set xsmall = path(rendition) %}
+	          	{% endgimme %}
+	      	{% endif %}
 
 			{% if xsmall is not empty %}
 				<picture class="article__image">
@@ -82,9 +75,10 @@
 		</div>
 
 		<footer class="article__footer articleFooter clearfix">
-			{% if gimme.article.metadata.byline %}
-			  <strong class="articleFooter__left">by {{ gimme.article.metadata.byline }}</strong>
-			{% endif %}
+
+		{% for author in gimme.article.authors %} 
+        	{% if loop.first %}<strong class="articleFooter__left">by{% endif %}{% if not loop.first %}, {% endif %}{{ author.name }}{% if loop.last %}</strong>{% endif %}
+      	{% endfor %}
 
 			<div class="articleFooter__share pull-right clearfix">
 				<ul class="rrssb-buttons">

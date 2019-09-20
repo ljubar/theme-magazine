@@ -1,17 +1,15 @@
 <script>
  var galleryLinks = [];
 
-  {% gimmelist media from articleMedia with {'article': article} %}
-    {% if media.renditions is iterable %}
-      {% for rendition in media.renditions %}
-        {% if rendition.name == '960x480' %}
-          galleryLinks.push({
-             title: '{{ media.body }}',
-             href: '{{path(rendition)}}',
-             type: 'image/jpeg'
-          });
-        {% endif %}
-      {% endfor %}
-    {% endif %}
+  {% gimmelist slideshow from slideshows with { article: gimme.article } %}
+  {% gimmelist slideshowItem from slideshowItems|limit(99) with { article: gimme.article, slideshow: slideshow } %}
+    {% gimme rendition with {'media': slideshowItem.articleMedia, 'name': '960x480', 'fallback': 'original' } %}
+      galleryLinks.push({
+         title: '{{ media.description }}',
+         href: '{{ url(rendition) }}',
+         type: 'image/jpeg'
+      });
+    {% endgimme %}
+  {% endgimmelist %}
   {% endgimmelist %}
 </script>
